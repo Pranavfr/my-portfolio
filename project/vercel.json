@@ -1,8 +1,8 @@
 {
   "framework": "vite",
-  "buildCommand": "cd project && npm install && npm run build",
-  "outputDirectory": "project/dist",
-  "installCommand": "cd project && npm install",
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
   "routes": [
     {
       "src": "/(.*)",
