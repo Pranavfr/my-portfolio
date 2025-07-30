@@ -77,25 +77,25 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+    <section id="about" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
       <motion.div 
         className="max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+        <motion.div className="text-center mb-12 sm:mb-16" variants={itemVariants}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
             About Me
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             Passionate about creating secure, innovative, and impactful digital solutions
           </p>
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-16 max-w-4xl mx-auto"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 max-w-4xl mx-auto"
           variants={containerVariants}
         >
           {achievements.map((achievement, index) => {
@@ -103,33 +103,33 @@ const About = () => {
             return (
               <motion.div
                 key={achievement.label}
-                className="text-center p-6 bg-gray-900 rounded-xl border border-gray-700 hover:border-cyan-400 transition-colors duration-300"
+                className="text-center p-4 sm:p-6 bg-gray-900 rounded-xl border border-gray-700 hover:border-cyan-400 transition-colors duration-300"
                 variants={cardVariants}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <IconComponent className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
-                <div className="text-2xl font-bold text-white mb-1">{achievement.value}</div>
-                <div className="text-sm text-gray-400">{achievement.label}</div>
+                <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-cyan-400" />
+                <div className="text-lg sm:text-2xl font-bold text-white mb-1">{achievement.value}</div>
+                <div className="text-xs sm:text-sm text-gray-400">{achievement.label}</div>
               </motion.div>
             );
           })}
         </motion.div>
 
         <motion.div 
-          className="grid lg:grid-cols-2 gap-12 items-center"
+          className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center"
           variants={containerVariants}
         >
-          <motion.div className="space-y-8" variants={itemVariants}>
+          <motion.div className="space-y-6 sm:space-y-8" variants={itemVariants}>
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
                 Transforming Ideas into Reality
               </h3>
-              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
                 A passionate <span className="text-cyan-400 font-semibold">full-stack developer</span> and 
                 <span className="text-green-400 font-semibold"> cybersecurity enthusiast</span> who thrives on 
                 solving complex problems through innovative code solutions.
               </p>
-              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
                 From <span className="text-blue-400 font-semibold">secure web applications</span> to 
                 <span className="text-purple-400 font-semibold"> intelligent Discord bots</span>, 
                 I merge cutting-edge technology with creative problem-solving.
@@ -137,7 +137,7 @@ const About = () => {
             </div>
 
             <div className="space-y-4">
-              <h4 className="text-xl font-bold text-white mb-4">Core Expertise</h4>
+              <h4 className="text-lg sm:text-xl font-bold text-white mb-4">Core Expertise</h4>
               {[
                 { skill: 'Full-Stack Development', level: 95, color: 'cyan' },
                 { skill: 'Cybersecurity', level: 90, color: 'green' },
@@ -150,10 +150,10 @@ const About = () => {
                   whileHover={{ x: 10 }}
                 >
                   <div className="flex justify-between mb-2">
-                    <span className="text-gray-300 font-medium">{item.skill}</span>
-                    <span className={`text-${item.color}-400 font-bold`}>{item.level}%</span>
+                    <span className="text-sm sm:text-base text-gray-300 font-medium">{item.skill}</span>
+                    <span className={`text-${item.color}-400 font-bold text-sm sm:text-base`}>{item.level}%</span>
                   </div>
-                  <div className="w-full bg-gray-700 rounded-full h-3">
+                  <div className="w-full bg-gray-700 rounded-full h-2 sm:h-3">
                     <motion.div 
                       className={`h-full bg-gradient-to-r from-${item.color}-500 to-${item.color}-400 rounded-full`}
                       initial={{ width: 0 }}
@@ -167,7 +167,7 @@ const About = () => {
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
             variants={containerVariants}
           >
             {tags.map((tag, index) => {
@@ -175,19 +175,19 @@ const About = () => {
               return (
                 <motion.div
                   key={tag.label}
-                  className="p-6 bg-gray-900 rounded-xl border border-gray-700 hover:border-gray-600 transition-colors duration-300"
+                  className="p-4 sm:p-6 bg-gray-900 rounded-xl border border-gray-700 hover:border-gray-600 transition-colors duration-300"
                   variants={cardVariants}
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${tag.color} flex items-center justify-center mb-4`}>
-                    <IconComponent size={24} className="text-white" />
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-r ${tag.color} flex items-center justify-center mb-3 sm:mb-4`}>
+                    <IconComponent size={20} className="sm:w-6 sm:h-6 text-white" />
                   </div>
                   
-                  <h3 className="text-lg font-bold text-white mb-2">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-2">
                     {tag.label}
                   </h3>
                   
-                  <p className="text-sm text-gray-400 mb-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3 leading-relaxed">
                     {tag.description}
                   </p>
                   

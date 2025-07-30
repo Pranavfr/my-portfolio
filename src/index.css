@@ -10,5 +10,32 @@
   body {
     font-family: 'Inter', system-ui, sans-serif;
     background: #0a0a0a;
+    overflow-x: hidden;
+  }
+
+  /* Better mobile responsiveness */
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  /* Fix for iOS Safari viewport issues */
+  @supports (-webkit-touch-callout: none) {
+    .min-h-screen {
+      min-height: -webkit-fill-available;
+    }
+  }
+}
+
+/* Custom scrollbar for better UX */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 } 

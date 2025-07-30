@@ -114,25 +114,25 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+    <section id="skills" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
       <motion.div 
         className="max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+        <motion.div className="text-center mb-12 sm:mb-16" variants={itemVariants}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
             Skills & Expertise
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             A comprehensive toolkit for building secure, scalable, and innovative solutions
           </p>
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           variants={containerVariants}
         >
           {skillCategories.map((category, categoryIndex) => {
@@ -140,18 +140,18 @@ const Skills = () => {
             return (
               <motion.div
                 key={category.title}
-                className="bg-gray-800 rounded-xl border border-gray-700 p-6 hover:border-gray-600 transition-colors duration-300"
+                className="bg-gray-800 rounded-xl border border-gray-700 p-4 sm:p-6 hover:border-gray-600 transition-colors duration-300"
                 variants={cardVariants}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category.color} flex items-center justify-center`}>
-                    <IconComponent size={24} className="text-white" />
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-r ${category.color} flex items-center justify-center`}>
+                    <IconComponent size={20} className="sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-white">{category.title}</h3>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div 
                       key={skill.name}
@@ -159,10 +159,10 @@ const Skills = () => {
                       whileHover={{ x: 10 }}
                     >
                       <div className="flex justify-between mb-2">
-                        <span className="text-gray-300 font-medium">{skill.name}</span>
-                        <span className={`text-${skill.color}-400 font-bold`}>{skill.level}%</span>
+                        <span className="text-sm sm:text-base text-gray-300 font-medium">{skill.name}</span>
+                        <span className={`text-${skill.color}-400 font-bold text-sm sm:text-base`}>{skill.level}%</span>
                       </div>
-                      <div className="w-full bg-gray-700 rounded-full h-3">
+                      <div className="w-full bg-gray-700 rounded-full h-2 sm:h-3">
                         <motion.div 
                           className={`h-full bg-gradient-to-r from-${skill.color}-500 to-${skill.color}-400 rounded-full`}
                           initial={{ width: 0 }}
@@ -180,7 +180,7 @@ const Skills = () => {
 
         {/* Additional Skills Section */}
         <motion.div 
-          className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto"
+          className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
           variants={containerVariants}
         >
           {[
@@ -193,13 +193,13 @@ const Skills = () => {
             return (
               <motion.div
                 key={skill.label}
-                className="text-center p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-cyan-400 transition-colors duration-300"
+                className="text-center p-4 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-cyan-400 transition-colors duration-300"
                 variants={cardVariants}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <IconComponent className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
-                <div className="text-lg font-bold text-white mb-1">{skill.value}</div>
-                <div className="text-sm text-gray-400">{skill.label}</div>
+                <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-cyan-400" />
+                <div className="text-base sm:text-lg font-bold text-white mb-1">{skill.value}</div>
+                <div className="text-xs sm:text-sm text-gray-400">{skill.label}</div>
               </motion.div>
             );
           })}

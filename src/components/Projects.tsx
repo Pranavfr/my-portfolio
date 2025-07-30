@@ -92,38 +92,38 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+    <section id="projects" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
       <motion.div 
         className="max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+        <motion.div className="text-center mb-12 sm:mb-16" variants={itemVariants}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Showcasing my latest work and innovative solutions across various technologies
           </p>
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8"
           variants={containerVariants}
         >
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-gray-900 rounded-xl border border-gray-700 p-6 hover:border-gray-600 transition-all duration-500 transform hover:scale-105"
+              className="bg-gray-900 rounded-xl border border-gray-700 p-4 sm:p-6 hover:border-gray-600 transition-all duration-500 transform hover:scale-105"
               variants={cardVariants}
               whileHover={{ scale: 1.02, y: -5 }}
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
             >
               {/* Project Image */}
-              <div className="relative mb-6 overflow-hidden rounded-lg">
+              <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-lg">
                 <motion.a
                   href={project.liveLink}
                   target="_blank"
@@ -143,11 +143,11 @@ const Projects = () => {
                     className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                     initial={{ opacity: 0 }}
                   >
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="grid grid-cols-3 gap-4 text-center">
+                    <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4">
+                      <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
                         {Object.entries(project.stats).map(([key, value]) => (
                           <div key={key} className="text-center">
-                            <div className="text-cyan-400 font-bold text-lg">{value}</div>
+                            <div className="text-cyan-400 font-bold text-sm sm:text-lg">{value}</div>
                             <div className="text-gray-300 text-xs capitalize">{key}</div>
                           </div>
                         ))}
@@ -156,7 +156,7 @@ const Projects = () => {
                     
                     {/* Click to visit overlay */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="bg-black/70 backdrop-blur-sm rounded-lg px-4 py-2 text-white text-sm font-medium">
+                      <div className="bg-black/70 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-1 sm:py-2 text-white text-xs sm:text-sm font-medium">
                         Click to visit live site →
                       </div>
                     </div>
@@ -165,46 +165,46 @@ const Projects = () => {
               </div>
 
               {/* Project Info */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                    <span className="inline-block px-3 py-1 bg-gray-700 text-gray-300 text-sm rounded-full border border-gray-600">
+                  <div className="flex-1">
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{project.title}</h3>
+                    <span className="inline-block px-2 sm:px-3 py-1 bg-gray-700 text-gray-300 text-xs sm:text-sm rounded-full border border-gray-600">
                       {project.category}
                     </span>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-1 sm:gap-2 ml-2">
                     <motion.a
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-110"
+                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-110"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <Play size={16} />
+                      <Play size={14} className="sm:w-4 sm:h-4" />
                     </motion.a>
                     <motion.a
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-gray-700 border border-gray-600 flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:border-cyan-500 transition-all duration-300 transform hover:scale-110"
+                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-700 border border-gray-600 flex items-center justify-center text-gray-300 hover:text-cyan-400 hover:border-cyan-500 transition-all duration-300 transform hover:scale-110"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <Github size={16} />
+                      <Github size={14} className="sm:w-4 sm:h-4" />
                     </motion.a>
                   </div>
                 </div>
 
-                <p className="text-gray-300 leading-relaxed">{project.description}</p>
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{project.description}</p>
 
                 {/* Features */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-2">
                   {project.features.map((feature, featureIndex) => (
                     <span
                       key={featureIndex}
-                      className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full border border-gray-700"
+                      className="px-2 sm:px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full border border-gray-700"
                     >
                       {feature}
                     </span>
@@ -212,11 +212,11 @@ const Projects = () => {
                 </div>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-2">
                   {project.techStack.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full border border-gray-700"
+                      className="px-2 sm:px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full border border-gray-700"
                     >
                       {tech}
                     </span>
@@ -229,19 +229,19 @@ const Projects = () => {
 
         {/* View All Projects Button */}
         <motion.div 
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-12"
           variants={itemVariants}
         >
           <motion.a
             href="https://github.com/Pranavfr"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 text-sm sm:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span>View All Projects</span>
-            <ExternalLink size={20} />
+            <ExternalLink size={16} className="sm:w-5 sm:h-5" />
           </motion.a>
         </motion.div>
       </motion.div>

@@ -200,7 +200,7 @@ const GitHubActivity = () => {
 
   if (loading) {
     return (
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
         <div className="max-w-7xl mx-auto text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400 mx-auto"></div>
           <p className="text-gray-400 mt-4">Loading GitHub activity...</p>
@@ -210,26 +210,26 @@ const GitHubActivity = () => {
   }
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
       <motion.div 
         className="max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+        <motion.div className="text-center mb-12 sm:mb-16" variants={itemVariants}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
             GitHub Activity
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             My latest contributions, repositories, and coding activity
           </p>
         </motion.div>
 
         {/* Stats Cards */}
         <motion.div 
-          className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16"
           variants={containerVariants}
         >
           {[
@@ -242,62 +242,62 @@ const GitHubActivity = () => {
             return (
               <motion.div
                 key={stat.label}
-                className="text-center p-6 bg-gray-800 rounded-xl border border-gray-700"
+                className="text-center p-4 sm:p-6 bg-gray-800 rounded-xl border border-gray-700"
                 variants={cardVariants}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <IconComponent className={`w-8 h-8 mx-auto mb-3 text-${stat.color}-400`} />
-                <div className={`text-2xl font-bold text-${stat.color}-400 mb-1`}>
+                <IconComponent className={`w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-${stat.color}-400`} />
+                <div className={`text-lg sm:text-2xl font-bold text-${stat.color}-400 mb-1`}>
                   {stat.value}
                 </div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-gray-400">{stat.label}</div>
               </motion.div>
             );
           })}
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Recent Repositories */}
           <motion.div variants={containerVariants}>
-            <motion.h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3" variants={itemVariants}>
-              <Github size={24} className="text-cyan-400" />
+            <motion.h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3" variants={itemVariants}>
+              <Github size={20} className="sm:w-6 sm:h-6 text-cyan-400" />
               Recent Repositories
             </motion.h3>
             
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {repos.map((repo, index) => (
                 <motion.a
                   key={repo.id}
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300"
+                  className="block p-4 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300"
                   variants={cardVariants}
                   whileHover={{ scale: 1.02, y: -5 }}
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <h4 className="text-lg font-bold text-white hover:text-cyan-400 transition-colors">
+                  <div className="flex items-start justify-between mb-2 sm:mb-3">
+                    <h4 className="text-base sm:text-lg font-bold text-white hover:text-cyan-400 transition-colors">
                       {repo.name}
                     </h4>
-                    <div className="flex items-center gap-4 text-sm">
+                    <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm">
                       <span className="flex items-center gap-1 text-gray-400">
-                        <Star size={14} />
+                        <Star size={12} className="sm:w-4 sm:h-4" />
                         {repo.stargazers_count}
                       </span>
                       <span className="flex items-center gap-1 text-gray-400">
-                        <GitBranch size={14} />
+                        <GitBranch size={12} className="sm:w-4 sm:h-4" />
                         {repo.forks_count}
                       </span>
                     </div>
                   </div>
                   
-                  <p className="text-gray-400 mb-4 text-sm">
+                  <p className="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">
                     {repo.description}
                   </p>
                   
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <span className={`text-sm ${getLanguageColor(repo.language)}`}>
+                    <div className="flex items-center gap-2 sm:gap-4">
+                      <span className={`text-xs sm:text-sm ${getLanguageColor(repo.language)}`}>
                         {repo.language}
                       </span>
                       <span className="text-xs text-gray-500">
@@ -323,21 +323,21 @@ const GitHubActivity = () => {
 
           {/* Recent Commits */}
           <motion.div variants={containerVariants}>
-            <motion.h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3" variants={itemVariants}>
-              <TrendingUp size={24} className="text-green-400" />
+            <motion.h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3" variants={itemVariants}>
+              <TrendingUp size={20} className="sm:w-6 sm:h-6 text-green-400" />
               Recent Commits
             </motion.h3>
             
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {commits.map((commit, index) => (
                 <motion.div
                   key={commit.sha}
-                  className="p-6 bg-gray-800 rounded-xl border border-gray-700"
+                  className="p-4 sm:p-6 bg-gray-800 rounded-xl border border-gray-700"
                   variants={cardVariants}
                   whileHover={{ scale: 1.02, y: -5 }}
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <h4 className="text-sm font-mono text-cyan-400">
+                  <div className="flex items-start justify-between mb-2 sm:mb-3">
+                    <h4 className="text-xs sm:text-sm font-mono text-cyan-400">
                       {commit.sha.substring(0, 7)}
                     </h4>
                     <span className="text-xs text-gray-500">
@@ -345,12 +345,12 @@ const GitHubActivity = () => {
                     </span>
                   </div>
                   
-                  <p className="text-white mb-3 text-sm">
+                  <p className="text-white mb-2 sm:mb-3 text-xs sm:text-sm">
                     {commit.message}
                   </p>
                   
                   <div className="flex items-center gap-2 text-xs text-gray-400">
-                    <Code size={12} />
+                    <Code size={10} className="sm:w-3 sm:h-3" />
                     {commit.repo}
                   </div>
                 </motion.div>
