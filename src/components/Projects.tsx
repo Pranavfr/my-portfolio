@@ -46,7 +46,7 @@ const Projects = () => {
       title: 'GlowHelp AI Chatbot',
       description: 'AI-powered chatbot for personalized skincare guidance using advanced machine learning and natural language processing.',
       image: '/glowhelp.png',
-      liveLink: 'https://glowhelpai-chatbot.vercel.app/',
+      liveLink: 'https://pranavfr.github.io/glowhelpai-chatbot/',
       githubLink: 'https://github.com/Pranavfr/glowhelpai-chatbot',
       techStack: ['React', 'OpenAI API', 'JavaScript', 'CSS3', 'Vercel'],
       gradient: 'from-nature-teal to-forest-500',
