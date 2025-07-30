@@ -34,7 +34,7 @@ const Projects = () => {
       title: 'URL Shortener',
       description: 'Military-grade URL shortener with advanced security features, analytics dashboard, and comprehensive link management system.',
       image: '/urlshortener.png',
-      liveLink: 'https://url-shortener-pranav.vercel.app/',
+      liveLink: 'https://fluxurl-production.up.railway.app/',
       githubLink: 'https://github.com/Pranavfr/url-shortener',
       techStack: ['Python', 'Flask', 'MongoDB', 'HTML/CSS', 'JavaScript'],
       gradient: 'from-sage-500 to-sage-600',
