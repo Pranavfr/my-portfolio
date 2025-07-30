@@ -52,14 +52,14 @@ const Hero = () => {
         animate="visible"
       >
         <motion.h1 
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent leading-tight"
+          className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent leading-tight"
           variants={titleVariants}
         >
           Pranav Rathore
         </motion.h1>
         
         <motion.div 
-          className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-4 font-light flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4"
+          className="text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-4 font-light flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4"
           variants={itemVariants}
         >
           <span className="text-cyan-400 flex items-center gap-1 sm:gap-2">
@@ -82,7 +82,7 @@ const Hero = () => {
         </motion.div>
         
         <motion.p 
-          className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
+          className="text-base sm:text-base md:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
           variants={itemVariants}
         >
           Building secure, modern, and interactive digital experiences where security meets innovation
@@ -94,7 +94,7 @@ const Hero = () => {
         >
           <motion.button
             onClick={() => scrollToSection('projects')}
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base"
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-2 text-base sm:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -104,7 +104,7 @@ const Hero = () => {
           
           <motion.button
             onClick={() => scrollToSection('contact')}
-            className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base"
+            className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2 text-base sm:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -113,7 +113,7 @@ const Hero = () => {
           </motion.button>
           
           <motion.button 
-            className="border-2 border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base"
+            className="border-2 border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2 text-base sm:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -137,8 +137,8 @@ const Hero = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.1 }}
             >
-              <div className={`text-xl sm:text-2xl lg:text-3xl font-bold ${stat.color}`}>{stat.value}</div>
-              <div className="text-xs sm:text-sm text-gray-500">{stat.label}</div>
+              <div className={`text-2xl sm:text-2xl lg:text-3xl font-bold ${stat.color}`}>{stat.value}</div>
+              <div className="text-sm sm:text-sm text-gray-500">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

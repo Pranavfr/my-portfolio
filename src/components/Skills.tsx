@@ -123,10 +123,10 @@ const Skills = () => {
         viewport={{ once: true, amount: 0.1 }}
       >
         <motion.div className="text-center mb-12 sm:mb-16" variants={itemVariants}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
             Skills & Expertise
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+          <p className="text-lg sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             A comprehensive toolkit for building secure, scalable, and innovative solutions
           </p>
         </motion.div>
