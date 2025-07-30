@@ -22,7 +22,7 @@ const Projects = () => {
       title: 'Personality Test App',
       description: 'Advanced quiz-based application that analyzes user personalities using MBTI logic with detailed insights and personalized recommendations.',
       image: '/personality.png',
-      liveLink: 'https://personality-test-app.vercel.app/',
+      liveLink: 'https://personality-test-weld.vercel.app/',
       githubLink: 'https://github.com/Pranavfr/PersonalityTest',
       techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
       gradient: 'from-nature-gold to-nature-coral',
