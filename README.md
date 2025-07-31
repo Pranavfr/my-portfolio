@@ -44,6 +44,7 @@ The project is automatically deployed on Vercel:
 - Automatic deployments on push
 - Optimized build process
 - CDN distribution
+- Updated deployment trigger
 
 ## 📦 Installation
 
