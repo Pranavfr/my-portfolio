@@ -7,6 +7,18 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'ThreadCraft',
+      description: 'AI-powered tweet thread generator that creates viral content using Google Gemini API. Features glassmorphic design, multiple tones, and one-click sharing capabilities.',
+      image: '/thread-craft.png',
+      liveLink: 'https://thread-craft-seven.vercel.app/',
+      githubLink: 'https://github.com/Pranavfr/thread-craft',
+      techStack: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Google Gemini API'],
+      gradient: 'from-purple-500 to-pink-500',
+      category: 'AI Application',
+      features: ['AI-Powered', 'Viral Content', 'Multiple Tones', 'Glassmorphic UI'],
+      stats: { users: '3K+', threads: '500+', accuracy: '95%' }
+    },
+    {
       title: 'Esports Talks Website',
       description: 'A comprehensive esports community platform for India\'s premier gaming community, featuring community management, content creation, brand partnerships, and tournament organization.',
       image: '/talkesp.png',
