@@ -58,10 +58,10 @@ const Contact = () => {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+91 8521667782',
-      href: 'tel:+918521667782',
+      value: 'Available upon request',
+      href: '#contact',
       color: 'from-green-500 to-teal-500',
-      description: 'Available for urgent projects'
+      description: 'Contact via email first for phone number'
     },
     {
       icon: Linkedin,
