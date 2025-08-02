@@ -7,6 +7,18 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'Where Is My Data',
+      description: 'Comprehensive privacy and security checking application that helps users verify if their personal information has been compromised in data breaches.',
+      image: '/where-is-my-data.png',
+      liveLink: 'https://where-is-my-data.vercel.app/',
+      githubLink: 'https://github.com/Pranavfr/where-is-my-data',
+      techStack: ['React 18', 'TypeScript', 'Vite', 'Tailwind CSS', 'FastAPI'],
+      gradient: 'from-red-500 to-orange-500',
+      category: 'Security Tool',
+      features: ['Email Breach Checker', 'Password Security', 'Domain Reputation', 'IP Blacklist Check'],
+      stats: { users: '2K+', checks: '10K+', security: '100%' }
+    },
+    {
       title: 'ThreadCraft',
       description: 'AI-powered tweet thread generator that creates viral content using Google Gemini API. Features glassmorphic design, multiple tones, and one-click sharing capabilities.',
       image: '/thread-craft.png',
