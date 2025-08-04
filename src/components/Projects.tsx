@@ -7,6 +7,18 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'StalkerMode',
+      description: 'Sleek OSINT dashboard with cyberpunk theme for social media discovery, email analysis, domain WHOIS, and IP geolocation. Built for cybersecurity professionals.',
+      image: '/stalkermode.png',
+      liveLink: 'https://stalker-mode.vercel.app/',
+      githubLink: 'https://github.com/Pranavfr/StalkerMode',
+      techStack: ['React 18', 'TypeScript', 'Tailwind CSS', 'Axios', 'Lucide React'],
+      gradient: 'from-green-500 to-emerald-500',
+      category: 'OSINT Tool',
+      features: ['Social Media Discovery', 'Email Analysis', 'Domain WHOIS', 'IP Geolocation'],
+      stats: { searches: '2K+', platforms: '50+', accuracy: '95%', tools: '4' }
+    },
+    {
       title: 'DropshipHub',
       description: 'Premium dropshipping platform with modern Windows-inspired design, featuring real-time cart management, user authentication, and comprehensive product catalog.',
       image: '/dropshiphub.png',
