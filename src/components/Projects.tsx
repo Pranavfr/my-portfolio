@@ -7,6 +7,18 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'DropshipHub',
+      description: 'Premium dropshipping platform with modern Windows-inspired design, featuring real-time cart management, user authentication, and comprehensive product catalog.',
+      image: '/dropshiphub.png',
+      liveLink: 'https://dropshiping-hub.vercel.app/',
+      githubLink: 'https://github.com/Pranavfr/e-commerce-demo',
+      techStack: ['React 18', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+      gradient: 'from-blue-500 to-indigo-500',
+      category: 'E-commerce Platform',
+      features: ['Real-time Cart', 'User Authentication', 'Product Management', 'Responsive Design'],
+      stats: { products: '1000+', categories: '8', users: '5K+', orders: '500+' }
+    },
+    {
       title: 'Where Is My Data',
       description: 'Comprehensive privacy and security checking application that helps users verify if their personal information has been compromised in data breaches.',
       image: '/where-is-my-data.png',
