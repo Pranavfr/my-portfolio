@@ -52,49 +52,51 @@ const Hero = () => {
         animate="visible"
       >
         <motion.h1 
-          className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent leading-tight"
+          className="font-heading text-display-md sm:text-display-lg font-extrabold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent tracking-tight text-balance"
           variants={titleVariants}
         >
           Pranav Rathore
         </motion.h1>
         
         <motion.div 
-          className="text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-4 font-light flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4"
+          className="text-body-lg sm:text-body-xl text-gray-300 mb-6 font-medium flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6"
           variants={itemVariants}
         >
           <span className="text-cyan-400 flex items-center gap-1 sm:gap-2">
             <Shield size={16} className="sm:w-5 sm:h-5" />
-            <span className="hidden sm:inline">Cybersecurity Analyst</span>
-            <span className="sm:hidden">Security Analyst</span>
+            <span className="hidden sm:inline">Cybersecurity Engineer</span>
+            <span className="sm:hidden">Cyber Engineer</span>
           </span>
           <span className="hidden sm:inline text-gray-500">•</span>
           <span className="text-blue-400 flex items-center gap-1 sm:gap-2">
-            <Laptop size={16} className="sm:w-5 sm:h-5" />
-            <span className="hidden sm:inline">Full-Stack Developer</span>
-            <span className="sm:hidden">Developer</span>
+            <Bot size={16} className="sm:w-5 sm:h-5" />
+            <span className="hidden sm:inline">AI Red Teamer</span>
+            <span className="sm:hidden">Red Teamer</span>
           </span>
           <span className="hidden sm:inline text-gray-500">•</span>
           <span className="text-purple-400 flex items-center gap-1 sm:gap-2">
-            <Bot size={16} className="sm:w-5 sm:h-5" />
-            <span className="hidden sm:inline">Discord Bot Creator</span>
-            <span className="sm:hidden">Bot Creator</span>
+            <Laptop size={16} className="sm:w-5 sm:h-5" />
+            <span className="hidden sm:inline">Full-Stack Developer</span>
+            <span className="sm:hidden">Full-Stack</span>
           </span>
         </motion.div>
         
-        <motion.p 
-          className="text-base sm:text-base md:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
-          variants={itemVariants}
-        >
-          Building secure, modern, and interactive digital experiences where security meets innovation
-        </motion.p>
+        <motion.div variants={itemVariants} className="mb-12 sm:mb-16">
+          <p className="font-body text-body-lg sm:text-body-xl text-gray-400 container-narrow px-6 text-balance leading-relaxed mb-4 mx-auto">
+            Cybersecurity-focused developer specializing in AI safety evaluation, red teaming, and modern full-stack applications.
+          </p>
+          <p className="font-body text-body-md sm:text-body-lg text-cyan-400/90 container-narrow px-6 text-balance leading-relaxed font-medium mx-auto">
+            Currently working as an AI Red Teamer & Reviewer at Mercor, evaluating and securing large language models.
+          </p>
+        </motion.div>
 
         <motion.div 
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 justify-center items-center mb-12 sm:mb-16 px-4"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 justify-center items-center mb-16 sm:mb-20 px-6"
           variants={itemVariants}
         >
           <motion.button
             onClick={() => scrollToSection('projects')}
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-2 text-base sm:text-base"
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold transition-all duration-300 hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-3 text-body-md sm:text-body-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -104,7 +106,7 @@ const Hero = () => {
           
           <motion.button
             onClick={() => scrollToSection('contact')}
-            className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2 text-base sm:text-base"
+            className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-3 text-body-md sm:text-body-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -113,7 +115,7 @@ const Hero = () => {
           </motion.button>
           
           <motion.button 
-            className="border-2 border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2 text-base sm:text-base"
+            className="border-2 border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-3 text-body-md sm:text-body-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -123,22 +125,22 @@ const Hero = () => {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12 max-w-2xl mx-auto px-4"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 lg:gap-6 mb-8 sm:mb-12 max-w-3xl mx-auto px-4"
           variants={itemVariants}
         >
           {[
-            { value: '15+', label: 'Projects', color: 'text-cyan-400' },
-            { value: '2+', label: 'Years Exp', color: 'text-blue-400' },
-            { value: '11', label: 'GitHub Repos', color: 'text-purple-400' }
+            { value: '15+', label: 'Projects Built', color: 'text-cyan-400' },
+            { value: 'AI Red Teaming', label: 'Experience', color: 'text-blue-400' },
+            { value: '11', label: 'Open-Source Repositories', color: 'text-purple-400' }
           ].map((stat, index) => (
             <motion.div 
               key={stat.label}
-              className="text-center"
+              className="text-center p-4 rounded-xl border border-gray-800 bg-gray-900/30 sm:border-none sm:bg-transparent sm:p-0"
               variants={itemVariants}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
             >
-              <div className={`text-2xl sm:text-2xl lg:text-3xl font-bold ${stat.color}`}>{stat.value}</div>
-              <div className="text-sm sm:text-sm text-gray-500">{stat.label}</div>
+              <div className={`text-xl sm:text-xl lg:text-2xl font-bold ${stat.color} mb-1 sm:mb-0`}>{stat.value}</div>
+              <div className="text-sm sm:text-sm text-gray-400 sm:text-gray-500 font-medium sm:font-normal">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

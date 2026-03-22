@@ -32,114 +32,84 @@ const GitHubActivity = () => {
     totalCommits: 0
   });
 
-  // Mock data for demonstration (in real app, you'd fetch from GitHub API)
+  // Fetch live data from GitHub API
   useEffect(() => {
-    const mockRepos: GitHubRepo[] = [
-      {
-        id: 1,
-        name: 'esports-talks',
-        description: 'Comprehensive esports community platform for India\'s premier gaming community',
-        html_url: 'https://github.com/Pranavfr/esports-talks',
-        stargazers_count: 45,
-        forks_count: 12,
-        language: 'JavaScript',
-        updated_at: '2024-01-15T10:30:00Z',
-        topics: ['react', 'community', 'esports', 'gaming']
-      },
-      {
-        id: 2,
-        name: 'PersonalityTest',
-        description: 'Advanced quiz-based application that analyzes user personalities using MBTI logic',
-        html_url: 'https://github.com/Pranavfr/PersonalityTest',
-        stargazers_count: 32,
-        forks_count: 8,
-        language: 'TypeScript',
-        updated_at: '2024-01-10T14:20:00Z',
-        topics: ['react', 'typescript', 'personality', 'quiz']
-      },
-      {
-        id: 3,
-        name: 'url-shortener',
-        description: 'Military-grade URL shortener with advanced security features and analytics',
-        html_url: 'https://github.com/Pranavfr/url-shortener',
-        stargazers_count: 28,
-        forks_count: 15,
-        language: 'Python',
-        updated_at: '2024-01-08T09:15:00Z',
-        topics: ['python', 'flask', 'security', 'analytics']
-      },
-      {
-        id: 4,
-        name: 'glowhelpai-chatbot',
-        description: 'AI-powered chatbot for personalized skincare guidance using OpenAI API',
-        html_url: 'https://github.com/Pranavfr/glowhelpai-chatbot',
-        stargazers_count: 38,
-        forks_count: 6,
-        language: 'JavaScript',
-        updated_at: '2024-01-12T16:45:00Z',
-        topics: ['ai', 'chatbot', 'skincare', 'openai']
-      },
-      {
-        id: 5,
-        name: 'portfolio-website',
-        description: 'Modern portfolio website built with React, TypeScript, and Tailwind CSS',
-        html_url: 'https://github.com/Pranavfr/portfolio-website',
-        stargazers_count: 25,
-        forks_count: 10,
-        language: 'TypeScript',
-        updated_at: '2024-01-14T11:30:00Z',
-        topics: ['react', 'typescript', 'portfolio', 'tailwind']
+    const fetchGitHubData = async () => {
+      try {
+        setLoading(true);
+        const username = 'Pranavfr';
+        
+        // Fetch User Data for total repositories
+        const userRes = await fetch(`https://api.github.com/users/${username}`);
+        if (!userRes.ok) throw new Error('Failed to fetch user');
+        const userData = await userRes.json();
+        
+        // Fetch Repositories
+        const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+        if (!reposRes.ok) throw new Error('Failed to fetch repos');
+        const allRepos = await reposRes.json();
+        
+        if (Array.isArray(allRepos)) {
+          // Calculate stats
+          const totalStars = allRepos.reduce((sum: number, repo: any) => sum + repo.stargazers_count, 0);
+          const totalForks = allRepos.reduce((sum: number, repo: any) => sum + repo.forks_count, 0);
+          
+          setStats({
+            totalRepos: userData.public_repos || allRepos.length,
+            totalStars,
+            totalForks,
+            totalCommits: 0 // Will update after fetching events
+          });
+
+          // Filter out forks for the recent display and grab top 5
+          const activeRepos = allRepos.filter((repo: any) => !repo.fork);
+          setRepos(activeRepos.slice(0, 5));
+
+          // Fetch Recent Events for Commits
+          let pushEvents: any[] = [];
+          try {
+            const eventsRes = await fetch(`https://api.github.com/users/${username}/events?per_page=30`);
+            if (eventsRes.ok) {
+              const events = await eventsRes.json();
+              if (Array.isArray(events)) {
+                pushEvents = events.filter((e: any) => e.type === 'PushEvent');
+              }
+            }
+          } catch (e) {
+            console.warn("Failed to fetch events for commits:", e);
+          }
+          
+          const recentCommits: GitHubCommit[] = [];
+          pushEvents.forEach((event: any) => {
+            if (event.payload && Array.isArray(event.payload.commits)) {
+              event.payload.commits.forEach((commit: any) => {
+                recentCommits.push({
+                  sha: commit.sha,
+                  message: commit.message,
+                  date: event.created_at,
+                  repo: event.repo.name.split('/')[1] || event.repo.name
+                });
+              });
+            }
+          });
+          
+          // Show top 5 recent commits
+          setCommits(recentCommits.slice(0, 5));
+          
+          // Update total commits stat block (using recent activity count as GitHub doesn't expose global commit count easily)
+          setStats(prev => ({
+            ...prev,
+            totalCommits: recentCommits.length > 0 ? recentCommits.length : prev.totalCommits
+          }));
+        }
+      } catch (error) {
+        console.error("Error fetching GitHub data:", error);
+      } finally {
+        setLoading(false);
       }
-    ];
+    };
 
-    const mockCommits: GitHubCommit[] = [
-      {
-        sha: 'abc123',
-        message: 'feat: Add interactive skill tree component',
-        date: '2024-01-15T10:30:00Z',
-        repo: 'portfolio-website'
-      },
-      {
-        sha: 'def456',
-        message: 'fix: Resolve authentication issues in esports platform',
-        date: '2024-01-14T16:20:00Z',
-        repo: 'esports-talks'
-      },
-      {
-        sha: 'ghi789',
-        message: 'feat: Implement AI chatbot for skincare guidance',
-        date: '2024-01-13T14:15:00Z',
-        repo: 'glowhelpai-chatbot'
-      },
-      {
-        sha: 'jkl012',
-        message: 'docs: Update README with deployment instructions',
-        date: '2024-01-12T09:45:00Z',
-        repo: 'url-shortener'
-      },
-      {
-        sha: 'mno345',
-        message: 'feat: Add personality type analysis to quiz app',
-        date: '2024-01-11T13:30:00Z',
-        repo: 'PersonalityTest'
-      }
-    ];
-
-    setRepos(mockRepos);
-    setCommits(mockCommits);
-
-    // Calculate stats - Updated to reflect 11 total repositories
-    const totalStars = mockRepos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
-    const totalForks = mockRepos.reduce((sum, repo) => sum + repo.forks_count, 0);
-
-    setStats({
-      totalRepos: 11, // Updated to show total of 11 repositories
-      totalStars,
-      totalForks,
-      totalCommits: mockCommits.length
-    });
-
-    setLoading(false);
+    fetchGitHubData();
   }, []);
 
   const formatDate = (dateString: string) => {
@@ -329,32 +299,42 @@ const GitHubActivity = () => {
             </motion.h3>
             
             <div className="space-y-3 sm:space-y-4">
-              {commits.map((commit, index) => (
-                <motion.div
-                  key={commit.sha}
-                  className="p-4 sm:p-6 bg-gray-800 rounded-xl border border-gray-700"
-                  variants={cardVariants}
-                  whileHover={{ scale: 1.02, y: -5 }}
-                >
-                  <div className="flex items-start justify-between mb-2 sm:mb-3">
-                    <h4 className="text-xs sm:text-sm font-mono text-cyan-400">
-                      {commit.sha.substring(0, 7)}
-                    </h4>
-                    <span className="text-xs text-gray-500">
-                      {formatDate(commit.date)}
-                    </span>
-                  </div>
-                  
-                  <p className="text-white mb-2 sm:mb-3 text-xs sm:text-sm">
-                    {commit.message}
-                  </p>
-                  
-                  <div className="flex items-center gap-2 text-xs text-gray-400">
-                    <Code size={10} className="sm:w-3 sm:h-3" />
-                    {commit.repo}
-                  </div>
-                </motion.div>
-              ))}
+              {commits.length > 0 ? (
+                commits.map((commit, index) => (
+                  <motion.div
+                    key={commit.sha}
+                    className="p-4 sm:p-6 bg-gray-800 rounded-xl border border-gray-700"
+                    variants={cardVariants}
+                    whileHover={{ scale: 1.02, y: -5 }}
+                  >
+                    <div className="flex items-start justify-between mb-2 sm:mb-3">
+                      <h4 className="text-xs sm:text-sm font-mono text-cyan-400">
+                        {commit.sha.substring(0, 7)}
+                      </h4>
+                      <span className="text-xs text-gray-500">
+                        {formatDate(commit.date)}
+                      </span>
+                    </div>
+                    
+                    <p className="text-white mb-2 sm:mb-3 text-xs sm:text-sm">
+                      {commit.message}
+                    </p>
+                    
+                    <div className="flex items-center gap-2 text-xs text-gray-400">
+                      <Code size={10} className="sm:w-3 sm:h-3" />
+                      {commit.repo}
+                    </div>
+                  </motion.div>
+                ))
+              ) : (
+                <div className="p-6 bg-gray-800 rounded-xl border border-gray-700 text-center flex flex-col items-center justify-center min-h-[200px]">
+                  <Github className="w-10 h-10 text-gray-600 mb-3" />
+                  <p className="text-gray-400 text-sm">No recent public commits found.</p>
+                  <a href="https://github.com/Pranavfr" target="_blank" rel="noopener noreferrer" className="mt-3 text-cyan-400 text-sm hover:underline hover:text-cyan-300 transition-colors">
+                    View profile on GitHub →
+                  </a>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

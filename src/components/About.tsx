@@ -1,44 +1,44 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Monitor, ShieldCheck, Cpu, Award, Target, Zap, Sparkles } from 'lucide-react';
+import { FaLaptopCode, FaUserShield, FaDiscord, FaLightbulb, FaAward, FaBullseye, FaBolt } from 'react-icons/fa';
 
 const About = () => {
   const tags = [
-    { 
-      label: 'Full-Stack Developer', 
-      icon: Monitor, 
+    {
+      label: 'Full-Stack Developer',
+      icon: FaLaptopCode,
       color: 'from-cyan-500 to-blue-500',
-      description: 'Building end-to-end web applications with modern frameworks',
+      description: 'Building scalable and secure web applications using modern frameworks and backend technologies.',
       specialty: 'React, Node.js, Python'
     },
-    { 
-      label: 'Cybersecurity Expert', 
-      icon: ShieldCheck, 
+    {
+      label: 'Cybersecurity Expert',
+      icon: FaUserShield,
       color: 'from-green-500 to-teal-500',
-      description: 'Securing applications with industry best practices',
+      description: 'Applying secure coding practices, vulnerability analysis, and OWASP security principles.',
       specialty: 'OWASP, Penetration Testing'
     },
-    { 
-      label: 'Discord Bot Creator', 
-      icon: Cpu, 
+    {
+      label: 'Discord Bot Creator',
+      icon: FaDiscord,
       color: 'from-purple-500 to-pink-500',
-      description: 'Creating intelligent bots with AI integration',
-      specialty: 'Discord.js, AI Integration'
+      description: 'Developing intelligent automation bots and integrations using APIs and AI tools.',
+      specialty: 'Discord.js, Integrations'
     },
-    { 
-      label: 'Innovation Leader', 
-      icon: Sparkles, 
+    {
+      label: 'Innovation Leader',
+      icon: FaLightbulb,
       color: 'from-orange-500 to-red-500',
-      description: 'Pioneering solutions with emerging technologies',
-      specialty: 'AI, Blockchain, IoT'
+      description: 'Exploring emerging technologies and building creative technical solutions.',
+      specialty: 'AI, Automation, APIs'
     },
   ];
 
   const achievements = [
-    { icon: Award, label: 'Top Rated', value: '5★' },
-    { icon: Target, label: 'Success Rate', value: '100%' },
-    { icon: Zap, label: 'Response Time', value: '<2hrs' },
-    { icon: ShieldCheck, label: 'Security Level', value: 'Max' },
+    { icon: FaAward, label: 'Top Rated', value: '5★' },
+    { icon: FaBullseye, label: 'Success Rate', value: '100%' },
+    { icon: FaBolt, label: 'Response Time', value: '<2hrs' },
+    { icon: FaUserShield, label: 'Security Level', value: 'Max' },
   ];
 
   const containerVariants = {
@@ -77,25 +77,25 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
-      <motion.div 
-        className="max-w-7xl mx-auto"
+    <section id="about" className="section-padding-lg px-6 sm:px-8 lg:px-12 bg-gray-800">
+      <motion.div
+        className="container-wide space-y-content"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       >
-        <motion.div className="text-center mb-12 sm:mb-16" variants={itemVariants}>
-          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+        <motion.div className="text-center" variants={itemVariants}>
+          <h2 className="font-heading text-display-sm sm:text-display-md font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent tracking-tight text-balance">
             About Me
           </h2>
-          <p className="text-lg sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+          <p className="font-body text-body-xl sm:text-body-xl text-gray-400 container-narrow text-balance leading-relaxed">
             Passionate about creating secure, innovative, and impactful digital solutions
           </p>
         </motion.div>
 
-        <motion.div 
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 max-w-4xl mx-auto"
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 container-content"
           variants={containerVariants}
         >
           {achievements.map((achievement, index) => {
@@ -115,36 +115,32 @@ const About = () => {
           })}
         </motion.div>
 
-        <motion.div 
-          className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center"
+        <motion.div
+          className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-start"
           variants={containerVariants}
         >
-          <motion.div className="space-y-6 sm:space-y-8" variants={itemVariants}>
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
+          <motion.div className="space-y-content" variants={itemVariants}>
+            <div className="prose-improved">
+              <h3 className="font-heading text-heading-lg sm:text-heading-xl font-bold text-white mb-6 tracking-tight">
                 Transforming Ideas into Reality
               </h3>
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
-                A passionate <span className="text-cyan-400 font-semibold">full-stack developer</span> and 
-                <span className="text-green-400 font-semibold"> cybersecurity enthusiast</span> who thrives on 
-                solving complex problems through innovative code solutions.
+              <p className="font-body text-body-lg text-gray-300 leading-relaxed mb-4">
+                I am a cybersecurity-focused developer and AI safety evaluator with experience in full-stack development and AI red teaming. I build secure web applications, evaluate AI systems for safety risks, and develop intelligent automation tools.
               </p>
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
-                From <span className="text-blue-400 font-semibold">secure web applications</span> to 
-                <span className="text-purple-400 font-semibold"> intelligent Discord bots</span>, 
-                I merge cutting-edge technology with creative problem-solving.
+              <p className="font-body text-body-lg text-gray-300 leading-relaxed">
+                This experience includes delivering highly secure web applications, rigorously evaluating AI models for policy compliance, and engineering intelligent automation systems.
               </p>
             </div>
 
-            <div className="space-y-4">
-              <h4 className="text-lg sm:text-xl font-bold text-white mb-4">Core Expertise</h4>
+            <div className="space-y-tight">
+              <h4 className="font-heading text-heading-md sm:text-heading-lg font-bold text-white mb-6 tracking-tight">Core Expertise</h4>
               {[
                 { skill: 'Full-Stack Development', level: 95, color: 'cyan' },
                 { skill: 'Cybersecurity', level: 90, color: 'green' },
                 { skill: 'Bot Development', level: 88, color: 'purple' },
                 { skill: 'Problem Solving', level: 98, color: 'blue' }
               ].map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={item.skill}
                   variants={itemVariants}
                   whileHover={{ x: 10 }}
@@ -154,7 +150,7 @@ const About = () => {
                     <span className={`text-${item.color}-400 font-bold text-sm sm:text-base`}>{item.level}%</span>
                   </div>
                   <div className="w-full bg-gray-700 rounded-full h-2 sm:h-3">
-                    <motion.div 
+                    <motion.div
                       className={`h-full bg-gradient-to-r from-${item.color}-500 to-${item.color}-400 rounded-full`}
                       initial={{ width: 0 }}
                       whileInView={{ width: `${item.level}%` }}
@@ -166,7 +162,7 @@ const About = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
             variants={containerVariants}
           >
@@ -182,15 +178,15 @@ const About = () => {
                   <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-r ${tag.color} flex items-center justify-center mb-3 sm:mb-4`}>
                     <IconComponent size={20} className="sm:w-6 sm:h-6 text-white" />
                   </div>
-                  
+
                   <h3 className="text-base sm:text-lg font-bold text-white mb-2">
                     {tag.label}
                   </h3>
-                  
+
                   <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3 leading-relaxed">
                     {tag.description}
                   </p>
-                  
+
                   <span className="text-xs text-gray-500">
                     {tag.specialty}
                   </span>

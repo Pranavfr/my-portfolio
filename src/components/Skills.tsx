@@ -114,19 +114,19 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+    <section id="skills" className="section-padding-lg px-6 sm:px-8 lg:px-12 bg-gray-900">
       <motion.div 
-        className="max-w-7xl mx-auto"
+        className="container-wide space-y-content"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       >
-        <motion.div className="text-center mb-12 sm:mb-16" variants={itemVariants}>
-          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+        <motion.div className="text-center" variants={itemVariants}>
+          <h2 className="font-heading text-display-sm sm:text-display-md font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent tracking-tight text-balance">
             Skills & Expertise
           </h2>
-          <p className="text-lg sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+          <p className="font-body text-body-xl text-gray-400 container-narrow text-balance leading-relaxed">
             A comprehensive toolkit for building secure, scalable, and innovative solutions
           </p>
         </motion.div>

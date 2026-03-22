@@ -140,25 +140,25 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+    <section id="projects" className="section-padding-lg px-6 sm:px-8 lg:px-12 bg-gray-800">
       <motion.div 
-        className="max-w-7xl mx-auto"
+        className="container-wide space-y-content"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       >
-        <motion.div className="text-center mb-12 sm:mb-16" variants={itemVariants}>
-                     <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+        <motion.div className="text-center" variants={itemVariants}>
+                     <h2 className="font-heading text-display-sm sm:text-display-md font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent tracking-tight text-balance">
              Featured Projects
            </h2>
-           <p className="text-lg sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+           <p className="font-body text-body-xl text-gray-300 container-narrow text-balance leading-relaxed">
             Showcasing my latest work and innovative solutions across various technologies
           </p>
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10"
           variants={containerVariants}
         >
           {projects.map((project, index) => (
