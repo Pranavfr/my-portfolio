@@ -114,14 +114,17 @@ const Hero = () => {
             Contact Me
           </motion.button>
           
-          <motion.button 
+          <motion.a 
+            href="https://drive.google.com/uc?export=download&id=1h8pjnkpc87MFY439om3iFprB6uHfBeSx"
+            target="_blank"
+            rel="noopener noreferrer"
             className="border-2 border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-3 text-body-md sm:text-body-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Download size={16} className="sm:w-5 sm:h-5" />
             Download Resume
-          </motion.button>
+          </motion.a>
         </motion.div>
 
         <motion.div 
