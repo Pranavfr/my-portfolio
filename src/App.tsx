@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import SkillTree from './components/SkillTree';
 import GitHubActivity from './components/GitHubActivity';
+import EducationAndAchievements from './components/EducationAndAchievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -19,6 +20,7 @@ function App() {
       <Skills />
       <SkillTree />
       <GitHubActivity />
+      <EducationAndAchievements />
       <Contact />
       <Footer />
     </div>
