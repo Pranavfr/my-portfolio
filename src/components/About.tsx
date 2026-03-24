@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaLaptopCode, FaUserShield, FaDiscord, FaLightbulb, FaAward, FaBullseye, FaBolt } from 'react-icons/fa';
+import SpotlightCard from './SpotlightCard';
+import HackerTerminal from './HackerTerminal';
 
 const About = () => {
   const tags = [
@@ -26,10 +28,10 @@ const About = () => {
       specialty: 'Discord.js, Integrations'
     },
     {
-      label: 'Innovation Leader',
+      label: 'Automation & Research',
       icon: FaLightbulb,
       color: 'from-orange-500 to-red-500',
-      description: 'Exploring emerging technologies and building creative technical solutions.',
+      description: 'Building custom tools and experimenting with deep API integrations to solve edge-case problems.',
       specialty: 'AI, Automation, APIs'
     },
   ];
@@ -103,13 +105,14 @@ const About = () => {
             return (
               <motion.div
                 key={achievement.label}
-                className="text-center p-4 sm:p-6 bg-gray-900 rounded-xl border border-gray-700 hover:border-cyan-400 transition-colors duration-300"
                 variants={cardVariants}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-cyan-400" />
-                <div className="text-lg sm:text-2xl font-bold text-white mb-1">{achievement.value}</div>
-                <div className="text-xs sm:text-sm text-gray-400">{achievement.label}</div>
+                <SpotlightCard className="text-center p-4 sm:p-6 rounded-xl border border-gray-800 transition-colors duration-300">
+                  <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3 text-cyan-400" />
+                  <div className="text-lg sm:text-2xl font-bold text-white mb-1">{achievement.value}</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{achievement.label}</div>
+                </SpotlightCard>
               </motion.div>
             );
           })}
@@ -122,43 +125,19 @@ const About = () => {
           <motion.div className="space-y-content" variants={itemVariants}>
             <div className="prose-improved">
               <h3 className="font-heading text-heading-lg sm:text-heading-xl font-bold text-white mb-6 tracking-tight">
-                Transforming Ideas into Reality
+                My Engineering Philosophy
               </h3>
               <p className="font-body text-body-lg text-gray-300 leading-relaxed mb-4">
-                I am a cybersecurity-focused developer and AI safety evaluator with experience in full-stack development and AI red teaming. I build secure web applications, evaluate AI systems for safety risks, and develop intelligent automation tools.
+                I specialize in bridging the gap between scalable development and secure systems. Rather than just building web apps, I focus on how they handle data defensively.
               </p>
               <p className="font-body text-body-lg text-gray-300 leading-relaxed">
-                This experience includes delivering highly secure web applications, rigorously evaluating AI models for policy compliance, and engineering intelligent automation systems.
+                Concurrently at Mercor, I apply these rigorous security principles directly to large language models, actively stress-testing them to expose critical vulnerabilities and policy breaches before they reach production.
               </p>
             </div>
 
             <div className="space-y-tight">
-              <h4 className="font-heading text-heading-md sm:text-heading-lg font-bold text-white mb-6 tracking-tight">Core Expertise</h4>
-              {[
-                { skill: 'Full-Stack Development', level: 95, color: 'cyan' },
-                { skill: 'Cybersecurity', level: 90, color: 'green' },
-                { skill: 'Bot Development', level: 88, color: 'purple' },
-                { skill: 'Problem Solving', level: 98, color: 'blue' }
-              ].map((item, index) => (
-                <motion.div
-                  key={item.skill}
-                  variants={itemVariants}
-                  whileHover={{ x: 10 }}
-                >
-                  <div className="flex justify-between mb-2">
-                    <span className="text-sm sm:text-base text-gray-300 font-medium">{item.skill}</span>
-                    <span className={`text-${item.color}-400 font-bold text-sm sm:text-base`}>{item.level}%</span>
-                  </div>
-                  <div className="w-full bg-gray-700 rounded-full h-2 sm:h-3">
-                    <motion.div
-                      className={`h-full bg-gradient-to-r from-${item.color}-500 to-${item.color}-400 rounded-full`}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${item.level}%` }}
-                      transition={{ duration: 1.5, delay: index * 0.2 }}
-                    />
-                  </div>
-                </motion.div>
-              ))}
+              <h4 className="font-heading text-heading-md sm:text-heading-lg font-bold text-white mb-6 tracking-tight">System Workflow</h4>
+              <HackerTerminal />
             </div>
           </motion.div>
 
@@ -171,25 +150,27 @@ const About = () => {
               return (
                 <motion.div
                   key={tag.label}
-                  className="p-4 sm:p-6 bg-gray-900 rounded-xl border border-gray-700 hover:border-gray-600 transition-colors duration-300"
                   variants={cardVariants}
                   whileHover={{ scale: 1.05, y: -5 }}
+                  className="h-full"
                 >
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-r ${tag.color} flex items-center justify-center mb-3 sm:mb-4`}>
-                    <IconComponent size={20} className="sm:w-6 sm:h-6 text-white" />
-                  </div>
+                  <SpotlightCard className="p-4 sm:p-6 rounded-xl border border-gray-800 transition-colors duration-300 h-full flex flex-col">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-r ${tag.color} flex items-center justify-center mb-3 sm:mb-4`}>
+                      <IconComponent size={20} className="sm:w-6 sm:h-6 text-white" />
+                    </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-2">
-                    {tag.label}
-                  </h3>
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-2">
+                      {tag.label}
+                    </h3>
 
-                  <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3 leading-relaxed">
-                    {tag.description}
-                  </p>
+                    <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3 leading-relaxed flex-grow">
+                      {tag.description}
+                    </p>
 
-                  <span className="text-xs text-gray-500">
-                    {tag.specialty}
-                  </span>
+                    <span className="text-xs text-gray-500 font-medium">
+                      {tag.specialty}
+                    </span>
+                  </SpotlightCard>
                 </motion.div>
               );
             })}

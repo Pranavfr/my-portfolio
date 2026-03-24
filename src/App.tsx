@@ -9,10 +9,15 @@ import GitHubActivity from './components/GitHubActivity';
 import EducationAndAchievements from './components/EducationAndAchievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-gray-900 min-h-screen text-gray-100 font-sans cursor-default">
+      <CustomCursor />
+      {/* Matte Graphic Overlay */}
+      <div className="noise-bg"></div>
+
       <Hero />
       <About />
       <WorkExperience />

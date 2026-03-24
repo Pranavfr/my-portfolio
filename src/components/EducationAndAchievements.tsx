@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCertificate, FaTrophy } from 'react-icons/fa';
+import SpotlightCard from './SpotlightCard';
 
 const EducationAndAchievements = () => {
   const containerVariants = {
@@ -126,15 +127,17 @@ const EducationAndAchievements = () => {
                 {achievements.map((item, index) => (
                   <motion.div 
                     key={index} 
-                    className="p-5 rounded-xl bg-gray-800 border border-gray-700 hover:border-yellow-400/50 transition-colors shadow-lg group"
                     variants={itemVariants}
                     whileHover={{ y: -2 }}
+                    className="h-full"
                   >
-                    <div className="flex justify-between items-start gap-4 mb-2">
-                      <h3 className="font-bold text-white text-lg group-hover:text-yellow-400 transition-colors">{item.title}</h3>
-                      <span className="text-xs font-medium text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded whitespace-nowrap mt-1">{item.date}</span>
-                    </div>
-                    <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+                    <SpotlightCard className="p-5 rounded-xl border border-gray-800 shadow-lg group h-full cursor-default">
+                      <div className="flex justify-between items-start gap-4 mb-2">
+                        <h3 className="font-bold text-white text-lg group-hover:text-yellow-400 transition-colors">{item.title}</h3>
+                        <span className="text-xs font-medium text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded whitespace-nowrap mt-1">{item.date}</span>
+                      </div>
+                      <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+                    </SpotlightCard>
                   </motion.div>
                 ))}
               </div>
@@ -155,15 +158,17 @@ const EducationAndAchievements = () => {
                 {certificates.map((cert, index) => (
                   <motion.div 
                     key={index}
-                    className="p-4 rounded-xl bg-gray-800 border border-gray-700 hover:border-green-400/50 transition-colors shadow-md"
                     variants={itemVariants}
                     whileHover={{ scale: 1.02 }}
+                    className="h-full"
                   >
-                    <h3 className="font-bold text-white text-sm mb-2 line-clamp-2">{cert.title}</h3>
-                    <div className="flex justify-between items-center mt-auto pt-2 border-t border-gray-700/50">
-                      <span className="text-xs text-gray-400">{cert.provider}</span>
-                      <span className="text-xs font-medium text-green-400">{cert.date}</span>
-                    </div>
+                    <SpotlightCard className="p-4 rounded-xl border border-gray-800 shadow-md h-full cursor-default flex flex-col group">
+                      <h3 className="font-bold text-white text-sm mb-2 line-clamp-2 group-hover:text-green-400 transition-colors">{cert.title}</h3>
+                      <div className="flex justify-between items-center mt-auto pt-2 border-t border-gray-700/50">
+                        <span className="text-xs text-gray-400">{cert.provider}</span>
+                        <span className="text-xs font-medium text-green-400">{cert.date}</span>
+                      </div>
+                    </SpotlightCard>
                   </motion.div>
                 ))}
               </div>

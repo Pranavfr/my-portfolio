@@ -93,10 +93,10 @@ const Hero = () => {
 
         <motion.div variants={itemVariants} className="mb-12 sm:mb-16">
           <p className="font-body text-body-lg sm:text-body-xl text-gray-400 container-narrow px-6 text-balance leading-relaxed mb-4 mx-auto">
-            Cybersecurity-focused developer specializing in AI safety evaluation, red teaming, and modern full-stack applications.
+            I build strict, secure web platforms and actively stress-test AI models to ensure structural safety.
           </p>
           <p className="font-body text-body-md sm:text-body-lg text-cyan-400/90 container-narrow px-6 text-balance leading-relaxed font-medium mx-auto">
-            Currently working as an AI Red Teamer & Reviewer at Mercor, evaluating and securing large language models.
+            AI Red Teamer @ Mercor — Actively exposing vulnerabilities in Large Language Models.
           </p>
         </motion.div>
 

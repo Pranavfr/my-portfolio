@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, easeOut } from 'framer-motion';
 import { ExternalLink, Github, Play, Star, GitBranch, Eye } from 'lucide-react';
+import TiltCard from './TiltCard';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -164,13 +165,13 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-gray-900 rounded-xl border border-gray-700 p-4 sm:p-6 hover:border-gray-600 transition-all duration-500 transform hover:scale-105"
+              className="relative h-full"
               variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -5 }}
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
             >
-              {/* Project Image */}
+              <TiltCard className="bg-gray-900 rounded-xl border border-gray-700 p-4 sm:p-6 hover:border-gray-500 transition-colors duration-500 h-full flex flex-col">
+                {/* Project Image */}
               <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-lg">
                 <motion.a
                   href={project.liveLink}
@@ -271,6 +272,7 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>
