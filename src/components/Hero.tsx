@@ -45,20 +45,30 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 relative px-4 sm:px-6 lg:px-8">
-      <motion.div 
+      <motion.div
         className="max-w-5xl mx-auto text-center w-full"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.h1 
+        <motion.div variants={itemVariants} className="mb-6 sm:mb-10 flex justify-center">
+          <div className="relative w-36 h-36 sm:w-48 sm:h-48 rounded-full p-1.5 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 shadow-2xl shadow-cyan-500/30">
+            <img 
+              src="/pranav_photo_cropped.png" 
+              alt="Pranav Rathore" 
+              className="w-full h-full rounded-full object-cover bg-gray-900 border-4 border-gray-900 shadow-inner"
+            />
+          </div>
+        </motion.div>
+
+        <motion.h1
           className="font-heading text-display-md sm:text-display-lg font-extrabold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent tracking-tight text-balance"
           variants={titleVariants}
         >
           Pranav Rathore
         </motion.h1>
-        
-        <motion.div 
+
+        <motion.div
           className="text-body-lg sm:text-body-xl text-gray-300 mb-6 font-medium flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6"
           variants={itemVariants}
         >
@@ -80,7 +90,7 @@ const Hero = () => {
             <span className="sm:hidden">Full-Stack</span>
           </span>
         </motion.div>
-        
+
         <motion.div variants={itemVariants} className="mb-12 sm:mb-16">
           <p className="font-body text-body-lg sm:text-body-xl text-gray-400 container-narrow px-6 text-balance leading-relaxed mb-4 mx-auto">
             Cybersecurity-focused developer specializing in AI safety evaluation, red teaming, and modern full-stack applications.
@@ -90,7 +100,7 @@ const Hero = () => {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 justify-center items-center mb-16 sm:mb-20 px-6"
           variants={itemVariants}
         >
@@ -103,7 +113,7 @@ const Hero = () => {
             <Eye size={16} className="sm:w-5 sm:h-5" />
             View Projects
           </motion.button>
-          
+
           <motion.button
             onClick={() => scrollToSection('contact')}
             className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-3 text-body-md sm:text-body-lg"
@@ -113,8 +123,8 @@ const Hero = () => {
             <Mail size={16} className="sm:w-5 sm:h-5" />
             Contact Me
           </motion.button>
-          
-          <motion.a 
+
+          <motion.a
             href="https://drive.google.com/uc?export=download&id=1h8pjnkpc87MFY439om3iFprB6uHfBeSx"
             target="_blank"
             rel="noopener noreferrer"
@@ -127,7 +137,7 @@ const Hero = () => {
           </motion.a>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 lg:gap-6 mb-8 sm:mb-12 max-w-3xl mx-auto px-4"
           variants={itemVariants}
         >
@@ -136,7 +146,7 @@ const Hero = () => {
             { value: 'AI Red Teaming', label: 'Experience', color: 'text-blue-400' },
             { value: '11', label: 'Open-Source Repositories', color: 'text-purple-400' }
           ].map((stat, index) => (
-            <motion.div 
+            <motion.div
               key={stat.label}
               className="text-center p-4 rounded-xl border border-gray-800 bg-gray-900/30 sm:border-none sm:bg-transparent sm:p-0"
               variants={itemVariants}
@@ -149,7 +159,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -160,5 +170,4 @@ const Hero = () => {
     </section>
   );
 };
-
 export default Hero;
